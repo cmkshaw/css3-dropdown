@@ -1,0 +1,322 @@
+  @font-face {
+    font-family: Wisdom;
+    src: url(../fonts/WisdomScript.otf);
+}
+
+/*------------------------------------ EM's reset -------------------------------*/
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video,p {
+    margin: 1%;
+    padding: .1%;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+}
+
+ol,ul {
+    list-style: none;
+}
+
+blockquote,q {
+    quotes: none;
+}
+
+blockquote:before,blockquote:after,q:before,q:after {
+    content: '';
+    content: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+p
+{
+  line-height: 1.4;
+}
+
+figure img {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+a
+{
+  text-decoration: none;
+  color:#FFF;
+}
+
+a:hover
+{
+  color:#A3D9B0;
+}
+
+/* - - - - - - - end reset - - - - - - */
+
+ body {
+    font-family: HelveticaNeue-Light, "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300;
+    margin: 5%;
+}
+
+header,footer {
+    background-color: #8C8474;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    margin-top: 5px;
+}
+
+h1,h2 {
+    font-family: HelveticaNeue-Light, "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300;
+    font-size: 2.2em;
+    color: #FFF;
+}
+
+h3 {
+    font-family: Wisdom;
+    text-transform: lowercase;
+    font-size: 2em;
+    color: #93BF9E;
+}
+
+h4 {
+    font-family: Wisdom;
+    text-transform: lowercase;
+    font-size: 1.4em;
+    color: #FFF;
+}
+
+h5 {
+    font-family: Wisdom;
+    margin: 15px 0 15px 0;
+    text-transform: lowercase;
+    font-size: 1.4em;
+    color: #8C8474;
+}
+
+.showme {
+    display: none;
+}
+
+.columns {
+    -ms-column-count: 3;
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;
+
+      -moz-column-rule:2px outset #CCC; /* Firefox */
+-webkit-column-rule:2px outset #CCC; /* Safari and Chrome */
+column-rule:2px outset #CCC;
+}
+
+.mainmenu {
+    
+    background-color: #A3D9B0;
+    padding: 20px;
+    z-index: 999;
+    
+}
+
+nav ul {
+    text-align: center;
+}
+
+.mainmenu li, .bottomnav li {
+    display: inline;
+    margin: 0 3%;
+    position: relative;
+}
+
+/*padding on the link ensures that there's no gap between the initial link and the menu items below*/
+.mainmenu li a {
+    color: #40362E;
+    font-size: 1.4em;
+    text-decoration: none;
+    position: relative;
+    margin-top: 5px;
+    line-height: .1;
+    padding: 10px 10px 20px 10px;
+}
+
+.mainmenu li a:hover {
+    color: #000;
+}
+
+
+/*------------------------------------ Initially, this ul class is invisible-------------------------------*/
+
+.mainmenu ul {
+    position: absolute;
+    list-style: none;
+    visibility: hidden;
+    opacity: 0;
+    background-color: #A3D9B0;
+    height: 0;
+    width: 160px;
+    margin: 5px;
+    top: 38px;
+    left: -35px;
+    z-index: 999;
+    -webkit-border-bottom-right-radius: 15px;
+    -webkit-border-bottom-left-radius: 15px;
+    -moz-border-radius-bottomright: 15px;
+    -moz-border-radius-bottomleft: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    -webkit-box-shadow: 0 3px 12px rgba(50,50,50,0.75);
+    -moz-box-shadow: 0 3px 12px rgba(50,50,50,0.75);
+    box-shadow: 0 3px 12px rgba(50,50,50,0.75);
+}
+
+.mainmenu ul li {
+    width: 250px;
+    position: relative;
+}
+
+.mainmenu ul li a {
+    color: #FFF;
+    font-size: 1.2em;
+    width: auto;
+    margin-bottom: 2px;
+    display: list-item;
+}
+
+/*----------I needed to make sure the menus popped out on all of these hover states..they may not all be necessary-----------*/
+
+
+/*----------Re: CSS3 Animations: Fillmode is key here to maintain the last keyframe (the menu at full opacity)-----------*/
+.mainmenu li:hover ul,.mainmenu ul:hover li,.mainmenu ul:hover,.mainmenu li:hover {
+    animation-duration: .5s;
+    animation-name: menudrop;
+    animation-fill-mode: forwards;
+    -webkit-animation-duration: .5s;
+    -webkit-animation-name: menudrop;
+    -webkit-animation-fill-mode: forwards;
+}
+
+.mainmenu:hover {
+    visibility: visible;
+}
+
+.mainmenu li:hover ul li:hover {
+    color: #000;
+}
+
+.arrowright {
+  width: 0; 
+  height: 0; 
+  border-top: 40px solid transparent;
+  border-bottom: 40px solid transparent;
+  border-left: 40px solid green;
+  z-index: 10000;
+}
+
+/*----------CSS3 Keyframes-----------*/
+
+@keyframes menudrop {
+    from
+    {
+    padding-bottom: 0;
+    height: 0;
+    }
+
+to {
+    height: 300px;
+    /*for Firefox*/
+    min-height: 50px;
+    max-height: 500px;
+    padding-top: 5px;
+    visibility: visible;
+    opacity: 1;
+    -webkit-transition: all 400ms cubic-bezier(0.250,0.250,0.750,0.750);
+    -moz-transition: all 400ms cubic-bezier(0.250,0.250,0.750,0.750);
+    -ms-transition: all 400ms cubic-bezier(0.250,0.250,0.750,0.750);
+    -o-transition: all 400ms cubic-bezier(0.250,0.250,0.750,0.750);
+    transition: all 400ms cubic-bezier(0.250,0.250,0.750,0.750);
+    -webkit-transition-timing-function: cubic-bezier(0.250,0.250,0.750,0.750);
+    -moz-transition-timing-function: cubic-bezier(0.250,0.250,0.750,0.750);
+    -ms-transition-timing-function: cubic-bezier(0.250,0.250,0.750,0.750);
+    -o-transition-timing-function: cubic-bezier(0.250,0.250,0.750,0.750);
+    transition-timing-function: cubic-bezier(0.250,0.250,0.750,0.750);
+    }    
+
+}
+
+@-webkit-keyframes menudrop {
+from
+    {
+    padding-bottom: 0;
+    height: 0;
+    }
+
+to {
+    height: auto;
+    min-height: 50px;
+    max-height: 500px;
+    padding-top: 2px;
+    visibility: visible;
+    opacity: 1;
+    }    
+}
+/*- - - - - - - Responsive Stuff: I combined columns when you shrink the page. - - - - - - - */
+
+@media only screen and (max-width: 800px), only screen and (max-device-width: 800px) {
+
+  .columns {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    -ms-column-count: 2;
+    column-count: 2;
+}
+
+.showme {
+    display: inherit;
+    font-size: 1.5em;
+}
+
+.mainmenu li a, .bottomnav li a {
+    font-size: .9em;
+    padding: 2px;
+}
+
+.mainmenu ul li a {
+    font-size: .8em;
+}
+
+.mainmenu ul {
+    width: 100px;
+    margin: 1px;
+    position: absolute;
+    top: 27px;
+    left: -25px;
+    z-index: 999;
+}
+
+
+@media only screen and (max-width: 480px), only screen and (max-device-width: 480px) {
+
+  .columns {
+    -webkit-column-count: 1;
+    -moz-column-count: 1;
+    -ms-column-count: 1;
+    column-count: 1;
+}    
+
+}
